@@ -13,21 +13,30 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tw:build": "tailwindcss build ./src/styles/global.css -o ./public/styles/global.css",
+    "tw:prod": "cross-env NODE_ENV=production postcss build ./src/styles/global.css -o ./public/styles/global.css",
+    "tw:watch": "onchange \"tailwind.config.js\" \"src/**/*.css\" -- npm run tw:build"
   },
   "dependencies": {
     "autoprefixer": "^10.4.14",
+    "exceljs": "^4.3.0",
+    "file-saver": "^2.0.5",
     "gatsby": "^5.11.0",
     "gatsby-plugin-postcss": "^6.11.0",
-    "postcss": "^8.4.27",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
-    "typescript": "^5.1.6"
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "typescript": "^5.1.6",
+    "tailwindcss": "^3.3.3"
   }
 }
